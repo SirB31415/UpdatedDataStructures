@@ -6,6 +6,10 @@
 	objectVersion = 48;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FA83CDB4207BE8C40007F131 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA83CDB2207BE8C40007F131 /* main.cpp */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		FA83CDA2207BE7BF0007F131 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -24,6 +28,7 @@
 		FA83CDAF207BE81B0007F131 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
 		FA83CDB0207BE8220007F131 /* Testers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Testers; sourceTree = "<group>"; };
 		FA83CDB1207BE82A0007F131 /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
+		FA83CDB2207BE8C40007F131 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,7 @@
 				FA83CDB0207BE8220007F131 /* Testers */,
 				FA83CDAF207BE81B0007F131 /* Model */,
 				FA83CDAE207BE8120007F131 /* Controller */,
+				FA83CDB2207BE8C40007F131 /* main.cpp */,
 			);
 			path = UpdatedDataStructures;
 			sourceTree = "<group>";
@@ -121,6 +127,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA83CDB4207BE8C40007F131 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
