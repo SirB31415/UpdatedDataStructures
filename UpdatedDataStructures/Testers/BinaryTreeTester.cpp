@@ -25,3 +25,11 @@ void BinaryTreeTester :: doTreeStuff()
     testTree.demo();
     testTree.inOrderTraversal();
 }
+void BinaryTreeTester :: testNode()
+{
+    
+}
+void BinaryTreeTester :: testTree()
+{
+    
+}

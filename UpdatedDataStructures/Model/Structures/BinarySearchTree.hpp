@@ -169,7 +169,9 @@ bool BinarySearchTree<Type> :: contains(Type value)
 template <class Type>
 void BinarySearchTree<Type> :: insert(Type itemToInsert)
 {
-    
+    BinaryTreeNode<Type> * insertMe = new BinaryTreeNode<Type>(itemToInsert);
+    BinaryTreeNode<Type> * previous = nullptr;
+    BinaryTreeNode<Type> * current = this->root;
 }
 template <class Type>
 void BinarySearchTree<Type> :: remove(Type value)

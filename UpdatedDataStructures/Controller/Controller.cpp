@@ -17,9 +17,10 @@ void Controller :: start()
 //    testArray();
     
     
-    GraphTester test;
-    test.testGraphs();
-    
+//    GraphTester test;
+//    test.testGraphs();
+    BinaryTreeTester test;
+    test.testBinaryTree();
 //    RecursionTester test;
 //    test.testRecursionNumbers();
 //    test.testRecursionString();
