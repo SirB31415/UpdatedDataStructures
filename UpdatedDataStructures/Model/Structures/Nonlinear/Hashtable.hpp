@@ -55,52 +55,72 @@ Hashtable<Type> :: HashNode<Type> ** internalStorage()
 template <class Type>
 long Hashtable<Type> :: size()
 {
-    
+    return -1;
 }
 template <class Type>
 long Hashtable<Type> :: capacity()
 {
-    
+    return -1;
 }
 template <class Type>
 double Hashtable<Type> :: loadFactor()
 {
-    
+    return -1;
 }
 template <class Type>
 long Hashtable<Type> :: getNextPrime()
 {
-    
+    return -1;
 }
 template <class Type>
 bool Hashtable<Type> :: isPrime(long current)
 {
-    
+    return false;
 }
 template <class Type>
 void Hashtable<Type> :: resize()
 {
-    
+    return null;
 }
 template <class Type>
 long Hashtable<Type> :: findPosition(HashNode<Type>* insertedNode)
 {
-    
+    return -1;
 }
 template <class Type>
 long Hashtable<Type> :: handleCollision(HashNode<Type>* insertedNode, long index)
 {
-    
+    return -1;
 }
 template <class Type>
 void Hashtable<Type> :: insert(Type data)
 {
+    this->size++;
+    if(((this->size * 1.000) / this->capacity) > this->loadFactor)
+    {
+        resize();
+    }
     
+    HashNode<Type> * temp = new HashNode<Type>(value);
+    long index = findPosition(temp);
+    
+    if(internalStorage[index] == nullptr)
+    {
+        internalStorage[index] = temp;
+    }
+    else
+    {
+        long updatedPosition = handleCollision( index);
+        if (updatedPosition != -1)
+        {
+            internalStorage[updatedPosition] = temp;
+        }
+    }
 }
 template <class Type>
 long Hashtable<Type> :: getSize()
 {
-    
+    return -1;
 }
 
 #endif /* Hashtable_hpp */
