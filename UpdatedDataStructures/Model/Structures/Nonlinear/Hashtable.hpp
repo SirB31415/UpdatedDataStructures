@@ -23,8 +23,8 @@ private:
     long getNextPrime();
     bool isPrime(long current);
     void resize();
-    long findPosition(HashNode<Type>* insertedNode);
-    long handleCollision(HashNode<Type>* insertedNode, long index);
+    long findPosition(HashNode<Type>* insert);
+    long handleCollision(long currentPosition);
     
 public:
     Hashtable();
@@ -70,12 +70,42 @@ double Hashtable<Type> :: loadFactor()
 template <class Type>
 long Hashtable<Type> :: getNextPrime()
 {
-    return -1;
+    long nextPrime = (this->capacity * 2) + 1;
+    
+    while(!isPrime(nextPrime))
+    {
+        nextPrime += 2;
+    }
+    
+    return nextPrime;
 }
 template <class Type>
 bool Hashtable<Type> :: isPrime(long current)
 {
-    return false;
+    if(current <= 1)
+    {
+        return false;
+    }
+    else if(current == 2 || current == 3)
+    {
+        return true;
+    }
+    else if(current % 2 == 0)
+    {
+        return false;
+    }
+    else
+    {
+        
+        for(int next = 3; next <= sqrt(current) + 1; next += 2)
+        {
+            if(current % next == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }
 template <class Type>
 void Hashtable<Type> :: resize()
@@ -112,13 +142,28 @@ void Hashtable<Type> :: resize()
         
 }
 template <class Type>
-long Hashtable<Type> :: findPosition(HashNode<Type>* insertedNode)
+long Hashtable<Type> :: findPosition(HashNode<Type>* insert)
 {
-    return -1;
+    long insertPosition = insert->getKey() % this->capacity;
+    return insertPosition;
 }
 template <class Type>
-long Hashtable<Type> :: handleCollision(HashNode<Type>* insertedNode, long index)
+long Hashtable<Type> :: handleCollision(long currentPosition)
 {
+    long shift = 17;
+    
+    for (long position = currentPosition + shift; postion != currentPosition; position += shift)
+    {
+        
+        if(position >= capacity)
+        {
+            position = position % capacity;
+        }
+        if(internalStorage[position] == nullptr)
+        {
+            return position;
+        }
+    }
     return -1;
 }
 template <class Type>
