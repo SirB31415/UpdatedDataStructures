@@ -80,7 +80,36 @@ bool Hashtable<Type> :: isPrime(long current)
 template <class Type>
 void Hashtable<Type> :: resize()
 {
-    return null;
+    long updatedCapacity = getNextPrime();
+    HashNode<Type> * * tempStorage = new HashNode<Type> * [updatedCapacity];
+    
+    std :: fill_n(tempStorage, updatedCapacity, nullptr);
+    
+    long oldCapacity = this->capacity;
+    this->capacity = updatedCapacity;
+    
+    for(long index = 0; index < oldCapacity; index++)
+    {
+        if(internalStorage[index] != nullptr)
+        {
+            HashNode<Type> * temp = internalStorage[index];
+        
+            long position = findPosition(temp);
+            if(tempStorage[position] == nullptr)
+            {
+                tempStorage[updatedPosition] = temp;
+            }
+            else
+            {
+                long updatedPosition = handleCollision(position);
+                if(updatedPosition !=-1)
+                {
+                    tempStorage[updatedPosition] = temp;
+                }
+            }
+        }
+        internalStorage = tempStorage;
+        
 }
 template <class Type>
 long Hashtable<Type> :: findPosition(HashNode<Type>* insertedNode)
