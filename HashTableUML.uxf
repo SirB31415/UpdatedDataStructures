@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>110</y>
+      <w>230</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>**Hashtable&lt;Type&gt; :: HashTable()**
+--
+**vars:**
+capacity
+internalStorage
+size
+loadFactor</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>350</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>**class Hashtable**
+--
+**private:**
+     HashNode&lt;Type&gt; ** internalStorage;
+     long size;
+     long capacity;
+     double loadFactor;
+
+     long getNextPrime();
+     bool isPrime(long current);
+     void resize();
+     long findPosition(HashNode&lt;Type&gt;* insert);
+     long handleCollision(long currentPosition);
+
+**public:**
+    Hashtable();
+    ~Hashtable();
+    
+    void insert(Type data);
+    long getSize();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>260</y>
+      <w>240</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>**Hashtable&lt;Type&gt; :: ~HashTable()**
+--
+delete [] internalStorage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>530</y>
+      <w>240</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>**Hashtable&lt;Type&gt; :: HashNode&lt;Type&gt; ** internalStorage**
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
