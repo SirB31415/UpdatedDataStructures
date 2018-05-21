@@ -21,9 +21,18 @@ void BinaryTreeTester :: doTreeStuff()
     testTree.insert(99);
     testTree.insert(9001);
     testTree.insert(101);
+
+    wordTree.insert("sdfkj;oaoijass;fijdflknclklvlknvlkncnssn;fias;ndcnlscnznsnrngnvnkljnfkasjnd;gbrbg;sjvdlnf");
+    wordTree.insert("Calvin");
+    wordTree.insert("Yael");
+    wordTree.insert("Parker");
+    
+    wordTree.inOrderTraversal();
     
     testTree.demo();
     testTree.inOrderTraversal();
+    testTree.preOrderTraversal();
+    testTree.postOrderTraversal();
 }
 void BinaryTreeTester :: testNode()
 {

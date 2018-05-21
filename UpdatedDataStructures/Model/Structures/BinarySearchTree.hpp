@@ -82,9 +82,14 @@ bool BinarySearchTree<Type> :: isComplete(BinaryTreeNode<Type> * startNode, int 
     return false;
 }
 template <class Type>
-void BinarySearchTree<Type> :: inOrderTraversal(BinaryTreeNode<Type> * inStart)
+void BinarySearchTree<Type> :: inOrderTraversal(BinaryTreeNode<Type> * currentNode)
 {
-    
+    if(currentNode != nullptr)
+    {
+        inOrderTraversal(currentNode->getLeftNode());
+        cout << currentNode->getData() << endl;
+        inOrderTraversal(currentNode->getRightNode());
+    }
 }
 template <class Type>
 void BinarySearchTree<Type> :: preOrderTraversal(BinaryTreeNode<Type> * preStart)
@@ -134,7 +139,7 @@ BinaryTreeNode<Type> * getRoot()
 template <class Type>
 void BinarySearchTree<Type> :: inOrderTraversal()
 {
-    
+    inOrderTraversal(this->root);
 }
 template <class Type>
 void BinarySearchTree<Type> :: preOrderTraversal()
@@ -172,6 +177,42 @@ void BinarySearchTree<Type> :: insert(Type itemToInsert)
     BinaryTreeNode<Type> * insertMe = new BinaryTreeNode<Type>(itemToInsert);
     BinaryTreeNode<Type> * previous = nullptr;
     BinaryTreeNode<Type> * current = this->root;
+    
+    if(current==nullptr)
+    {
+        this->root = insertMe;
+    }
+    else
+    {
+        while(current != nullptr)
+        {
+            previous = current;
+            if(itemToInsert < current->getData())
+            {
+                current = current->getLeftNode();
+            }
+            else if(itemToInsert > current->getData())
+            {
+                
+                current = current->getRightNode();
+            }
+            else //Remove cerr after verification of understanding
+            {
+                cerr << "Item exists already - Exiting insert" << endl;
+                delete insertMe;
+                return; //okay bc it is running nothing
+            }
+        }
+        if (previous->getData() > itemToInsert)
+        {
+            previous->setLeftNode(insertMe);
+        }
+        else
+        {
+            previous->setRightNode(insertMe);
+        }
+        insertMe->setRootNode(previous);
+    }
 }
 template <class Type>
 void BinarySearchTree<Type> :: remove(Type value)
